@@ -23,6 +23,12 @@ foreach ($result as $object) {
     try {
         print $gmail->find($object->getTitle()) . '<br/>';
     } catch (\Exception $exception) {
-        print "Couldn't find email in the object <br/>";
+        print "Couldn't find email in the object in the title <br/>";
+    }
+
+    try {
+        print $gmail->find($object->getText()) . '<br/>';
+    } catch (\Exception $exception) {
+        print "Couldn't find email in the object in the text <br/>";
     }
 }
