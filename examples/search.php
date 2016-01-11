@@ -2,16 +2,16 @@
 
 require '../vendor/autoload.php';
 
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+$total = isset($_GET['total']) ? $_GET['total'] : 10;
+
 $email = (new \SocialCrawler\Domain\Gmail());
 $source =  new \SocialCrawler\Domain\Source\Instagram();
 
 $engine = new \GoogleUrl();
 $search = new \SocialCrawler\Domain\Container($engine, $source);
 
-$search->setPerPage(10);
-
-$page = isset($_GET['page']) ? $_GET['page'] : 1;
-$total = isset($_GET['total']) ? $_GET['total'] : 10;
+$search->setPerPage($total);
 
 $result = $search->retrieveDataFromSource($email, $page)
     ->getResultSet();
