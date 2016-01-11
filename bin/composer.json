@@ -1,0 +1,7 @@
+{
+    "require": {
+    },
+    "require-dev": {
+        "symfony/dom-crawler": "^3.0"
+    }
+}

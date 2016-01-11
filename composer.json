@@ -1,0 +1,22 @@
+{
+    "name": "marabesi/social-crawler",
+    "description": "Easy way to find emails through social networks",
+    "authors": [
+        {
+            "name": "marabesi",
+            "email": "matheus.marabesi@gmail.com"
+        }
+    ],
+    "require": {
+        "sneakybobito/google-url": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.8.*",
+        "symfony/dom-crawler": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "SocialCrawler\\": "src/"
+        }
+    }
+}
