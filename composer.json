@@ -8,7 +8,8 @@
         }
     ],
     "require": {
-        "sneakybobito/google-url": "dev-master"
+        "sneakybobito/google-url": "dev-master",
+        "monolog/monolog": "1.17.2"
     },
     "require-dev": {
         "phpunit/phpunit": "4.8.*",

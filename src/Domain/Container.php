@@ -4,6 +4,7 @@ namespace SocialCrawler\Domain;
 
 use GoogleUrl\GooglePosition;
 use SocialCrawler\Domain\Source\Sourceable;
+use SocialCrawler\Log\MonologFactory;
 
 class Container implements Search
 {
@@ -13,16 +14,24 @@ class Container implements Search
     private $engineSearch;
 
     /**
-     * @var $limit register per page to show
+     * @var int register per page to show
      */
     private $perPage;
 
     /**
-     * @var $resultSet Holds the data fetched from engine search
+     * @var \GoogleUrl\GooglePosition Holds the data fetched from engine search
      */
     private $resultSet;
 
+    /**
+     * @var \SocialCrawler\Domain\Source\Sourceable
+     */
     private $source;
+
+    /**
+     * @var \Monolog\Logger
+     */
+    private $logger;
 
     /**
      * Container constructor.
@@ -54,6 +63,29 @@ class Container implements Search
     }
 
     /**
+     * @param int $type info, debug, error etc
+     * @return \Monolog\Logger
+     */
+    public function getLogger($type = null)
+    {
+        if (null === $this->logger) {
+            $this->logger = (new MonologFactory())->create();
+        }
+
+        return $this->logger;
+    }
+
+    /**
+     * @param MonologFactory $logger
+     * @return Container
+     */
+    public function setLogger($logger)
+    {
+        $this->logger = $logger;
+        return $this;
+    }
+
+    /**
      * @param Email $email
      * @param int $page
      * @return $this
@@ -79,6 +111,8 @@ class Container implements Search
         $response = $this->engineSearch->search('INURL:' . $this->source->getName() . ' "@' . $email->getDomain() . '"');
 
         $this->resultSet = $response->getPositions();
+
+        $this->getLogger()->addInfo((string) $this->resultSet);
 
         return $this;
     }
