@@ -105,7 +105,7 @@ class Container implements Search
         );
 
         $this->engineSearch->setPage(
-            ($page - 1)
+            $page - 1
         );
 
         $response = $this->engineSearch->search('INURL:' . $this->source->getName() . ' "@' . $email->getDomain() . '"');
