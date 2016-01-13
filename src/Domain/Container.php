@@ -112,7 +112,9 @@ class Container implements Search
 
         $this->resultSet = $response->getPositions();
 
-        $this->getLogger()->addInfo((string) $this->resultSet);
+        $this->getLogger()->addInfo(
+            var_export($this->resultSet, true)
+        );
 
         return $this;
     }
