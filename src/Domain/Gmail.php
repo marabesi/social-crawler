@@ -10,6 +10,6 @@ class Gmail extends Email
      */
     public function getDomain()
     {
-        return 'gmail.com';
+        return 'gmail\.com';
     }
 }

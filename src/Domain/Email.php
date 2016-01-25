@@ -22,7 +22,7 @@ abstract class Email {
      */
     public function find($text)
     {
-        $pattern ='/^[A-Z0-9._%-]+@' . $this->getDomain() . '?\s/i';
+        $pattern = '/(\W|^)[\w.+\-]*@' . $this->getDomain() . '(\W|$)/';
 
         $clean = str_replace(
             ['(', ')', ' ...'],
@@ -30,9 +30,11 @@ abstract class Email {
             $text
         );
 
+        $removeHtmlTags = strip_tags($clean);
+
         $find = preg_match(
             $pattern,
-            $clean,
+            $removeHtmlTags,
             $matches
         );
 
