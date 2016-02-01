@@ -15,7 +15,7 @@ class Factory
             case Email::GMAIL :
                 return new Gmail();
             case Email::OUTLOOK :
-                return new \stdClass();
+                return new Outlook();
         }
     }
 }

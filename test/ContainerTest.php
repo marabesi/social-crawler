@@ -54,4 +54,10 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf('SocialCrawler\Domain\Container', $data);
     }
+
+    public function testShouldDefineTotalPerPageByDefault()
+    {
+        $container = new Container($this->engine, $this->source);
+        $this->assertEquals(10, $container->getPerPage());
+    }
 }

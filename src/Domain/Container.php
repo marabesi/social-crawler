@@ -49,6 +49,10 @@ class Container implements Search
      */
     public function getPerPage()
     {
+        if (null === $this->perPage) {
+            $this->perPage = 10;
+        }
+
         return $this->perPage;
     }
 

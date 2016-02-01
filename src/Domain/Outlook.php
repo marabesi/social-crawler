@@ -2,7 +2,7 @@
 
 namespace SocialCrawler\Domain;
 
-class Gmail extends Email
+class Outlook extends Email
 {
 
     /**
@@ -10,6 +10,6 @@ class Gmail extends Email
      */
     public function getDomain()
     {
-        return 'gmail\.com';
+        return 'outlook\.com';
     }
 }
