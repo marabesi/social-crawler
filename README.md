@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/marabesi/social-crawler.svg?branch=master)](https://travis-ci.org/marabesi/social-crawler)
+
 # Social Crawler
 
 Find emails from socials network !
