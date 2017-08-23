@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b551c6697f3647948421f59603d05f5f)](https://www.codacy.com/app/matheus-marabesi/social-crawler?utm_source=github.com&utm_medium=referral&utm_content=marabesi/social-crawler&utm_campaign=badger)
 [![Build Status](https://travis-ci.org/marabesi/social-crawler.svg?branch=master)](https://travis-ci.org/marabesi/social-crawler)
 
 # Social Crawler
